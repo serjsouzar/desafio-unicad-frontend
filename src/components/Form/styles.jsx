@@ -26,12 +26,17 @@ export const FormContainer = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.3);
 
   input {
-    height: 28px;
+    height: 35px;
     border-radius: 8px;
     outline: none;
     padding: 5px;
     font-size: 14px;
     cursor: pointer;
+  }
+
+  h2 {
+    text-align: center;
+    color: #fff
   }
 
   .btn-form {
