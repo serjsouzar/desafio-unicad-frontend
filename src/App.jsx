@@ -1,6 +1,5 @@
 import { GlobalStyle } from "./GlobalStyles";
-import Form from "./components/Form/Form";
-import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
 
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
@@ -8,8 +7,7 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <>
-      <Header />
-      <Form />
+      <Main />
       <GlobalStyle />
       <ToastContainer
         position="bottom-right"
