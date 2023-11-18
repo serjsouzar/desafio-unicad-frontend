@@ -29,7 +29,7 @@ export const Container = styled.header`
 export const SubContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 300px;
   max-width: 380px;
   
@@ -38,6 +38,7 @@ export const SubContainer = styled.div`
     position: relative;
     padding-bottom: 2px;
     cursor: pointer;
+    font-weight: 100;
   }
 
   h3::before {

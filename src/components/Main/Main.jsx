@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { MyContext } from "../../context/application.context";
+
 import Form from "../Form/Form";
 import Header from "../Header/Header";
 
@@ -6,10 +8,8 @@ import { toast } from "react-toastify";
 import List from "../List/List";
 
 const Main = ({ openRegister, setOpenRegister, openList, setOpenList }) => {
-  const [name, setName] = useState("");
-  const [originAddress, setOriginAddress] = useState("");
-  const [deliveryAddress, setDeliveryAddress] = useState("");
-  const [date, setDate] = useState("");
+  
+  const { setName, setOriginAddress, setDeliveryAddress, setDate } = useContext(MyContext);
 
   const notify = () =>
     toast("✅ Entrega criada", {
@@ -57,20 +57,10 @@ const Main = ({ openRegister, setOpenRegister, openList, setOpenList }) => {
 
   return (
     <>
-      <Header setOpenRegister={setOpenRegister} setOpenList={setOpenList}/>
+      <Header setOpenRegister={setOpenRegister} setOpenList={setOpenList} />
       {openRegister === true ? (
         <>
-          <Form
-            name={name}
-            originAddress={originAddress}
-            deliveryAddress={deliveryAddress}
-            date={date}
-            setName={setName}
-            setOriginAddress={setOriginAddress}
-            setDeliveryAddress={setDeliveryAddress}
-            setDate={setDate}
-            handleCreateDelivery={createDelivery}
-          />
+          <Form handleCreateDelivery={createDelivery} />
         </>
       ) : openList === true ? (
         <List />
