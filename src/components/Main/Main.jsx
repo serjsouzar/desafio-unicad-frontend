@@ -3,8 +3,9 @@ import Form from "../Form/Form";
 import Header from "../Header/Header";
 
 import { toast } from "react-toastify";
+import List from "../List/List";
 
-const Main = () => {
+const Main = ({ openRegister, setOpenRegister, openList, setOpenList }) => {
   const [name, setName] = useState("");
   const [originAddress, setOriginAddress] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
@@ -43,7 +44,6 @@ const Main = () => {
       .then((response) => response.json())
       .then((response) => {
         if (response) notify();
-        
       })
       .catch((error) => {
         if (error) errorNotify();
@@ -57,18 +57,26 @@ const Main = () => {
 
   return (
     <>
-      <Header />
-      <Form
-        name={name}
-        originAddress={originAddress}
-        deliveryAddress={deliveryAddress}
-        date={date}
-        setName={setName}
-        setOriginAddress={setOriginAddress}
-        setDeliveryAddress={setDeliveryAddress}
-        setDate={setDate}
-        handleCreateDelivery={createDelivery}
-      />
+      <Header setOpenRegister={setOpenRegister} setOpenList={setOpenList}/>
+      {openRegister === true ? (
+        <>
+          <Form
+            name={name}
+            originAddress={originAddress}
+            deliveryAddress={deliveryAddress}
+            date={date}
+            setName={setName}
+            setOriginAddress={setOriginAddress}
+            setDeliveryAddress={setDeliveryAddress}
+            setDate={setDate}
+            handleCreateDelivery={createDelivery}
+          />
+        </>
+      ) : openList === true ? (
+        <List />
+      ) : (
+        <></>
+      )}
     </>
   );
 };

@@ -3,11 +3,15 @@ import Main from "./components/Main/Main";
 
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { useState } from "react";
 
 function App() {
+  const [openRegister, setOpenRegister] = useState(true);
+  const [openList, setOpenList] = useState(false);
+
   return (
     <>
-      <Main />
+      <Main openRegister={openRegister} setOpenRegister={setOpenRegister} openList={openList} setOpenList={setOpenList} />
       <GlobalStyle />
       <ToastContainer
         position="bottom-right"
