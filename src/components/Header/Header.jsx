@@ -10,8 +10,7 @@ const Header = ({ setOpenRegister, setOpenList }) => {
   function getResultsApi() {
     fetch("https://desafio-unicad-backend.onrender.com/deliveries")
       .then((response) => response.json())
-      .then((response) => {
-        console.log(response)
+      .then((response) => {        
         setDelivery(response.delivery)
       })
     }
