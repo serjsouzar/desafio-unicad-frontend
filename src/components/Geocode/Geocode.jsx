@@ -6,47 +6,52 @@ import { useMapsLibrary } from "@vis.gl/react-google-maps";
 
 const Geocode = () => {
   const {
-    delivery,
-    latitude1,
+    selectedDelivery,
     setLatitude1,
-    longitude1,
     setLongitude1,
-    latitude2,
     setLatitude2,
-    longitude2,
     setLongitude2,
   } = useContext(MyContext);
+
   const region = "BR";
 
   const geocodingApiloaded = useMapsLibrary("geocoding");
   const [geocodingService, setGeocodingService] = useState(null);
   const [geocodingResults, setGeocodingResults] = useState("");
-  const [address, setAddress] = useState(delivery[0]?.deliveryAddress);
+  const [address1, setAddress1] = useState(selectedDelivery?.originAddress);
+  const [address2, setAddress2] = useState(selectedDelivery?.deliveryAddress);
 
-  //const [finalAddress, setFinalAddress] = useState(address2)
 
   useEffect(() => {
     if (!geocodingApiloaded) return;
     setGeocodingService(new window.google.maps.Geocoder());
   }, [geocodingApiloaded]);
 
-  if (address) {
+  if (address1) {
     if (!geocodingService) return;
-
+    let address = address1
     geocodingService.geocode({ address, region }, (results, status) => {
       if (results && status === "OK") {
         setGeocodingResults(results[0]);
-        setLatitude1(results[0].geometry.location.lat());
-        setLongitude1(results[0].geometry.location.lng());
+        setLatitude1(results[0]?.geometry?.location.lat());
+        setLongitude1(results[0]?.geometry?.location.lng());
       }
     });
   }
 
-  return (
-    <>
-      <Geocode />
-    </>
-  );
+  if (address2) {
+    if (!geocodingService) return;
+    let address = address2
+    geocodingService.geocode({ address, region }, (results, status) => {
+      if (results && status === "OK") {
+        setGeocodingResults(results[0]);
+        setLatitude2(results[0]?.geometry?.location.lat());
+        setLongitude2(results[0]?.geometry?.location.lng());
+      }
+    });
+  }
+
+  return <></>;
 };
 
 export default Geocode;

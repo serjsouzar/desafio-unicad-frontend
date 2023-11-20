@@ -17,6 +17,8 @@ export const MyContextProvider = ({ children }) => {
   const [latitude2, setLatitude2] = useState(0);
   const [longitude2, setLongitude2] = useState(0);
 
+  const [selectedDelivery, setSelectedDelivery] = useState(Object.create(null))
+
 
   return (
     <MyContext.Provider
@@ -34,7 +36,13 @@ export const MyContextProvider = ({ children }) => {
         latitude1,
         setLatitude1,
         longitude1,
-        setLongitude1
+        setLongitude1,
+        latitude2,
+        setLatitude2,
+        longitude2,
+        setLongitude2,
+        selectedDelivery,
+        setSelectedDelivery
       }}
     >
       {children}

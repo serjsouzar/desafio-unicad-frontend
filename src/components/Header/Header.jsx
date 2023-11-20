@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { MyContext } from "../../context/application.context";
 import { Container, SubContainer } from "./styles";
 
-const Header = ({ setOpenRegister, setOpenList }) => {
+const Header = ({ setOpenRegister, setOpenList, setSelectedDelivery }) => {
 
   const { setDelivery } = useContext(MyContext);
 
@@ -15,16 +15,20 @@ const Header = ({ setOpenRegister, setOpenList }) => {
       })
     }
 
+
+  //TODO: Encontrar uma forma de esvaziar o objeto selectedDelivery  
+  function handleRegisterOption(){
+    setOpenRegister(true);
+    setOpenList(false);              
+  }  
+
   return (
     <>
       <Container>
         <img src={require("./../../assets/unicad-logo.png")} alt="logo-test" />
         <SubContainer>
           <h3
-            onClick={() => {
-              setOpenRegister(true);
-              setOpenList(false);
-            }}
+            onClick={() => handleRegisterOption()}
           >
             Registrar
           </h3>

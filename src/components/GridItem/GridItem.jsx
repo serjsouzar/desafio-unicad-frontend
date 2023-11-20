@@ -1,6 +1,12 @@
 import { Tr, Td } from "./styles";
 
+import { useContext } from "react";
+import { MyContext } from "../../context/application.context";
+
 const GridItem = ({ delivery }) => {
+
+  const {setSelectedDelivery} = useContext(MyContext);
+
   let deliveryDate = delivery.date.slice(0, 10);
   deliveryDate = deliveryDate
     .split("-")
@@ -8,8 +14,15 @@ const GridItem = ({ delivery }) => {
   deliveryDate =
     deliveryDate[2] + "/" + deliveryDate[1] + "/" + deliveryDate[0];
 
+    function handleSelectDelivery() {
+      setSelectedDelivery({
+        "originAddress": delivery.originAddress,
+        "deliveryAddress": delivery.deliveryAddress
+      })
+    }
+
   return (
-    <Tr>
+    <Tr onClick={() => handleSelectDelivery()}>
       <Td>{delivery.name}</Td>
       <Td>{delivery.originAddress}</Td>
       <Td>{delivery.deliveryAddress}</Td>
