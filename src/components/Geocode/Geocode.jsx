@@ -18,8 +18,8 @@ const Geocode = () => {
   const geocodingApiloaded = useMapsLibrary("geocoding");
   const [geocodingService, setGeocodingService] = useState(null);
   const [geocodingResults, setGeocodingResults] = useState("");
-  const [address1, setAddress1] = useState(selectedDelivery?.originAddress);
-  const [address2, setAddress2] = useState(selectedDelivery?.deliveryAddress);
+  let address1 = selectedDelivery?.originAddress;
+  let address2 = selectedDelivery?.deliveryAddress;
 
 
   useEffect(() => {

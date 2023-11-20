@@ -5,10 +5,11 @@ import {
   APIProvider,
   Map,
   Marker,
-  useMarkerRef,
+  useMarkerRef,  
 } from "@vis.gl/react-google-maps";
 import { MapContainer } from "./styles";
 import Geocode from "../Geocode/Geocode";
+import Directions from "../Directions/Directions";
 
 const MapComponent = () => {
   const { selectedDelivery, latitude1, longitude1, latitude2, longitude2 } =
@@ -21,15 +22,8 @@ const MapComponent = () => {
         <MapContainer>
           <APIProvider apiKey={process.env.REACT_APP_GOOGLE_KEY}>
             <Geocode />
-            <Map zoom={13} center={{ lat: latitude1, lng: longitude1 }}>
-              <Marker
-                ref={markerRef}
-                position={{ lat: latitude1, lng: longitude1 }}
-              />
-              <Marker
-                ref={markerRef}
-                position={{ lat: latitude2, lng: longitude2 }}
-              />
+            <Directions />
+            <Map zoom={15} center={{ lat: latitude1, lng: latitude1 }} >              
             </Map>
           </APIProvider>
         </MapContainer>
