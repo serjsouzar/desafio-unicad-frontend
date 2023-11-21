@@ -19,7 +19,7 @@ export const InputContainer = styled.div`
   align-items: center;
   position: relative;
   gap: 16px;
-  bottom: 55px;
+  bottom: 74px;
 `;
 
 export const InputContent = styled.div`

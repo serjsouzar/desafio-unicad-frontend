@@ -44,7 +44,7 @@ const Form = ({ handleCreateDelivery }) => {
             type="text"
             value={originAddress}
             onChange={(e) => setOriginAddress(e.target.value)}
-            placeholder="Av.Presidente Wilson 113, Rio de Janeiro"
+            placeholder="Av. Presidente Wilson 113, Rio de Janeiro"
           />
           </InputContent>
           <InputContent>
@@ -53,7 +53,7 @@ const Form = ({ handleCreateDelivery }) => {
             type="text"
             value={deliveryAddress}
             onChange={(e) => setDeliveryAddress(e.target.value)}
-            placeholder="Av.Infante Dom Henrique 85, Rio de Janeiro"
+            placeholder="Av. Infante Dom Henrique 85, Rio de Janeiro"
           />
           </InputContent>
           <InputContent>

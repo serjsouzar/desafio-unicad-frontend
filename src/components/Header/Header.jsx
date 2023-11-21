@@ -21,7 +21,7 @@ const Header = ({
         setLoading(false)
         setDelivery(response.delivery);        
       }).catch((error) => {
-        if (error) alert("Error: " + error)        
+        if (error) console.log("Error: " + error)        
       });
   }
 
