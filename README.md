@@ -1,7 +1,5 @@
 # Desafio FrontEnd Grupo Unicad
 
-## Available Scripts
-
 No diretório, você primeiro deve rodar:
 
 ### `npm install`
