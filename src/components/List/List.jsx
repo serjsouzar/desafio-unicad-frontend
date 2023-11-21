@@ -3,7 +3,6 @@ import Grid from "../Grid/Grid";
 import MapComponent from "../MapComponent/MapComponent";
 
 const List = () => {
-  //
 
   return (
     <div>

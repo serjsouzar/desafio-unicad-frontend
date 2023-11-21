@@ -57,7 +57,7 @@ const Main = ({ openRegister, setOpenRegister, openList, setOpenList }) => {
 
   return (
     <>
-      <Header setOpenRegister={setOpenRegister} setOpenList={setOpenList} />
+      <Header setOpenRegister={setOpenRegister} setOpenList={setOpenList} openRegister={openRegister}/>
       {openRegister === true ? (
         <>
           <Form handleCreateDelivery={createDelivery} />

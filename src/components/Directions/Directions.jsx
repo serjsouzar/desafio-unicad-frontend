@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-  APIProvider,
-  Map,
   useMapsLibrary,
   useMap,
 } from "@vis.gl/react-google-maps";
@@ -24,21 +22,19 @@ const Directions = () => {
   const selected = routes[routeIndex];
   const leg = selected?.legs[0];
 
-  // Initialize directions service and renderer
   useEffect(() => {
     if (!routesLibrary || !map) return;
     setDirectionsService(new routesLibrary.DirectionsService());
     setDirectionsRenderer(new routesLibrary.DirectionsRenderer({ map }));
   }, [routesLibrary, map]);
 
-  // Use directions service
   useEffect(() => {
     if (!directionsService || !directionsRenderer) return;
 
     directionsService
       .route({
-        origin: selectedDelivery.originAddress,
-        destination: selectedDelivery.deliveryAddress,
+        origin: selectedDelivery?.originAddress,
+        destination: selectedDelivery?.deliveryAddress,
         travelMode: window.google.maps.TravelMode.DRIVING,
         provideRouteAlternatives: true,
       })
@@ -50,7 +46,6 @@ const Directions = () => {
     return () => directionsRenderer.setMap(null);
   }, [directionsService, directionsRenderer]);
 
-  // Update direction route
   useEffect(() => {
     if (!directionsRenderer) return;
     directionsRenderer.setRouteIndex(routeIndex);

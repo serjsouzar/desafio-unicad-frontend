@@ -1,7 +1,12 @@
 import { styled } from "styled-components";
 
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 export const MapContainer = styled.div`
-width: 500px;
-height: 500px;
+width: 550px;
+height: 250px;
 background: #ddd;
 `

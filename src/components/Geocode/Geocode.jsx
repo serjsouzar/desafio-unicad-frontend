@@ -4,13 +4,16 @@ import { MyContext } from "../../context/application.context";
 import { useEffect, useState } from "react";
 import { useMapsLibrary } from "@vis.gl/react-google-maps";
 
-const Geocode = () => {
+const Geocode = ({selectedDelivery}) => {
   const {
-    selectedDelivery,
     setLatitude1,
     setLongitude1,
     setLatitude2,
     setLongitude2,
+    latitude1,
+    longitude1,
+    latitude2,
+    longitude2
   } = useContext(MyContext);
 
   const region = "BR";
@@ -21,9 +24,11 @@ const Geocode = () => {
   let address1 = selectedDelivery?.originAddress;
   let address2 = selectedDelivery?.deliveryAddress;
 
+  console.log("Endereco 1: " + latitude1 + " - " + longitude1)
+  console.log("Endereco 2: " + latitude2 + " - " + longitude2)
 
   useEffect(() => {
-    if (!geocodingApiloaded) return;
+    if (!geocodingApiloaded) return 
     setGeocodingService(new window.google.maps.Geocoder());
   }, [geocodingApiloaded]);
 
@@ -50,6 +55,7 @@ const Geocode = () => {
       }
     });
   }
+
 
   return <></>;
 };

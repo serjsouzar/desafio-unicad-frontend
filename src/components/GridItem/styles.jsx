@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Tr = styled.tr`
   &:hover {
@@ -12,4 +12,4 @@ export const Td = styled.td`
   text-align: center;
   word-break: break-all;
   padding-bottom: 10px;
-`
+`;
