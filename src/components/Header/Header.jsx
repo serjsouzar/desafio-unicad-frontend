@@ -12,13 +12,16 @@ const Header = ({
   setLatitude2,
   setLongitude2,
 }) => {
-  const { setDelivery } = useContext(MyContext);
+  const { setDelivery, setLoading } = useContext(MyContext);
 
   function getResultsApi() {
     fetch("https://desafio-unicad-backend.onrender.com/deliveries")
       .then((response) => response.json())
-      .then((response) => {
-        setDelivery(response.delivery);
+      .then((response) => {        
+        setLoading(false)
+        setDelivery(response.delivery);        
+      }).catch((error) => {
+        if (error) alert("Error: " + error)        
       });
   }
 

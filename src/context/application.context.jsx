@@ -19,7 +19,8 @@ export const MyContextProvider = ({ children }) => {
 
   const [selectedDelivery, setSelectedDelivery] = useState(Object.create(null))
 
-  const [seed, setSeed] = useState(1);       
+  const [seed, setSeed] = useState(1);
+  const [loading, setLoading] = useState(true)       
 
   return (
     <MyContext.Provider
@@ -45,7 +46,9 @@ export const MyContextProvider = ({ children }) => {
         selectedDelivery,
         setSelectedDelivery,
         seed,
-        setSeed
+        setSeed,
+        loading,
+        setLoading
       }}
     >
       {children}

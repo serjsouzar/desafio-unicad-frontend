@@ -24,9 +24,6 @@ const Geocode = ({selectedDelivery}) => {
   let address1 = selectedDelivery?.originAddress;
   let address2 = selectedDelivery?.deliveryAddress;
 
-  console.log("Endereco 1: " + latitude1 + " - " + longitude1)
-  console.log("Endereco 2: " + latitude2 + " - " + longitude2)
-
   useEffect(() => {
     if (!geocodingApiloaded) return 
     setGeocodingService(new window.google.maps.Geocoder());

@@ -26,3 +26,10 @@ export const Th = styled.th`
   text-align: center;
   width: auto;
 `;
+
+export const LoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+`
