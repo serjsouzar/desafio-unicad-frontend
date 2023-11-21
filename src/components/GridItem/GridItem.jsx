@@ -29,8 +29,8 @@ const GridItem = ({ delivery }) => {
     <>
       <Tr onClick={() => handleSelectDelivery()}>
         <Td>{delivery.name}</Td>
-        <Td>{delivery.originAddress}</Td>
-        <Td>{delivery.deliveryAddress}</Td>
+        <Td className="_address">{delivery.originAddress}</Td>
+        <Td className="_address">{delivery.deliveryAddress}</Td>
         <Td>{deliveryDate}</Td>
       </Tr>
     </>

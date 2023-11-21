@@ -12,4 +12,13 @@ export const Td = styled.td`
   text-align: center;
   word-break: break-all;
   padding-bottom: 10px;
-`;
+  color: #fff;
+  font-weight: 600;
+  
+  @media (max-width: 480px) {
+    font-size: 9px;
+    &:last-child {
+      width: 45px;
+    }    
+  }
+  `;
