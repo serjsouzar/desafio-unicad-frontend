@@ -5,12 +5,7 @@ import { Container, SubContainer } from "./styles";
 
 const Header = ({
   setOpenRegister,
-  openRegister,
   setOpenList,
-  setLatitude1,
-  setLongitude1,
-  setLatitude2,
-  setLongitude2,
 }) => {
   const { setDelivery, setLoading } = useContext(MyContext);
 
@@ -27,13 +22,7 @@ const Header = ({
 
   function handleRegisterOption() {
     setOpenRegister(true);
-    setOpenList(false);
-    if (openRegister === true) {
-      setLatitude1(0);
-      setLongitude1(0);
-      setLatitude2(0);
-      setLongitude2(0);
-    }
+    setOpenList(false);    
   }
 
   return (

@@ -60,7 +60,7 @@ const Form = ({ handleCreateDelivery }) => {
           <label>Data de entrega:</label>
           <input
             type="date"
-            value={date}
+            value={date}            
             onChange={(e) => setDate(e.target.value)}
           />
           </InputContent>

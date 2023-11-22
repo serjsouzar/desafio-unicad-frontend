@@ -53,7 +53,6 @@ export const FormContainer = styled.form`
     outline: none;
     padding: 5px;
     font-size: 14px;
-    cursor: pointer;
   }
 
   .form-img {

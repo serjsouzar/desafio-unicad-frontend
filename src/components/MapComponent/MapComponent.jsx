@@ -7,8 +7,8 @@ import Geocode from "../Geocode/Geocode";
 import Directions from "../Directions/Directions";
 
 const MapComponent = () => {
-  const { selectedDelivery, latitude1, seed } = useContext(MyContext);
-
+  const { selectedDelivery, latitude1, longitude1, seed } = useContext(MyContext);
+  
   useEffect(() => {
      {<Geocode/>}
   },[selectedDelivery])
@@ -19,8 +19,8 @@ const MapComponent = () => {
         <Container>
           <MapContainer>
             <APIProvider apiKey={process.env.REACT_APP_GOOGLE_KEY}>              
-              <Directions key={seed}/>
-              <Map zoom={15} center={{ lat: latitude1, lng: latitude1 }}></Map>
+              <Directions key={seed} />
+              <Map zoom={15} center={{ lat: latitude1, lng: longitude1 }} mapId={process.env.REACT_APP_MAP_ID}></Map>
             </APIProvider>
           </MapContainer>
         </Container>
